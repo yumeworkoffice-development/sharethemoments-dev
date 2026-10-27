@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Share the Moments</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+body class="admin-body" style="padding: 20px;">
+  <div id="authScreen" class="card">
+    <h2>管理者ログイン</h2>
+    <input type="password" id="passcodeInput" placeholder="パスコード (2026)">
+    <button id="loginBtn" class="btn-primary">ログイン</button>
+  </div>
+
+  <div id="adminMainScreen" style="display: none;">
+    <div class="card">
+      <h2>管理者コンソール</h2>
+      <button id="logoutBtn" class="btn-secondary">ログアウト</button>
+      <hr style="margin: 15px 0; border-color: #333;">
+      <h3>サイネージ機能 制御</h3>
+      <label><input type="checkbox" id="signageToggle"> サイネージ利用を有効にする</label>
+      <button id="saveSettingsBtn" class="btn-primary" style="margin-top: 10px;">設定を保存</button>
+    </div>
+  </div>
+  <script type="module" src="./js/admin.js"></script>
+</body>
+</html>
