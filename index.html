@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share the Moments</title>
+  <!-- PWA用マニフェスト -->
+  <link rel="manifest" href="./manifest.json">
+  <!-- 共通スタイル -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
 
+  <div class="app-container">
+    <header>
+      <h1>Share the Moments</h1>
+      <p>結婚式のお写真をリアルタイムでシェアしよう</p>
+    </header>
+
+    <main>
+      <!-- ゲスト情報選択セクション -->
+      <section class="card">
+        <h2>1. ゲスト情報の選択</h2>
+        <button id="tableSelectBtn" class="btn-secondary">テーブルを選択してください</button>
+        <button id="guestSelectBtn" class="btn-secondary">お名前を選択してください</button>
+      </section>
+
+      <!-- 写真アップロードセクション -->
+      <section class="card">
+        <h2>2. 写真のアップロード</h2>
+        <input type="file" id="photoInput" accept="image/*" multiple style="display: none;">
+        <button id="selectPhotoBtn" class="btn-primary">写真を選ぶ</button>
+        <div id="previewContainer"></div>
+        <textarea id="userMessage" placeholder="新郎新婦へのメッセージ（任意）"></textarea>
+        <button id="uploadBtn" class="btn-primary" disabled>送信する</button>
+      </section>
+
+      <!-- 送信履歴セクション -->
+      <section class="card">
+        <h2>3. あなたの送信履歴</h2>
+        <div id="historyContainer">
+          <p class="no-history-text">まだ送信された写真はありません</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- モーダル各種（テーブル選択・ゲスト名選択・PWAインストール用） -->
+  <div id="tableModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>テーブル番号を選択</h3>
+      <div id="tableList"></div>
+    </div>
+  </div>
+
+  <div id="guestModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>お名前を選択</h3>
+      <div id="guestList"></div>
+    </div>
+  </div>
+
+  <div id="pwaInstallModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>ホーム画面に追加</h3>
+      <p>このアプリをホーム画面に追加すると、より便利にご利用いただけます。</p>
+      <button id="pwaInstallYes" class="btn-primary">はい（追加する）</button>
+      <button id="pwaInstallNo" class="btn-secondary">今はしない</button>
+    </div>
+  </div>
+
+  <!-- アプリのメインコントローラーをES Modulesとして読み込み -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
